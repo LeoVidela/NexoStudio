@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoStudio - Análisis de Datos y Automatización para PyMEs</title>
+    <meta name="description" content="NexoStudio: Expertos en análisis de datos, automatización, gestión de redes sociales y reportes en Power BI. Soluciones innovadoras para pequeñas y medianas empresas.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item-icon {
+            font-size: 2rem;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NexoStudio</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Transformamos Datos en Decisiones Inteligentes</h1>
+        <p>Soluciones de análisis de datos, automatización y contenido digital para pequeñas y medianas empresas</p>
+        <a href="#contacto" class="cta-button">Contáctanos</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container" id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Análisis de Datos</h3>
+                <p>Transformamos tus datos en insights accionables. Analizamos tu información empresarial y generamos reportes detallados en Power BI y Looker Studio para tomar decisiones informadas.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Automatización de Procesos</h3>
+                <p>Optimiza tu negocio con soluciones de automatización personalizadas. Reducimos tareas repetitivas y aumentamos tu eficiencia operativa.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>Gestión WhatsApp e Instagram</h3>
+                <p>Potenciamos tu presencia digital. Asesoramiento experto en la gestión de tus canales de WhatsApp e Instagram para mejorar la comunicación con tus clientes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Reportes y Dashboards</h3>
+                <p>Creamos dashboards interactivos y reportes personalizados en Power BI y Looker Studio que te permiten visualizar tu rendimiento en tiempo real.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎥</div>
+                <h3>Contenido Audiovisual</h3>
+                <p>Producción de videos y fotografías profesionales para redes sociales. Creamos contenido atractivo que conecta con tu audiencia.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Consultoría PyME</h3>
+                <p>Asesoramiento especializado para pequeñas y medianas empresas. Te ayudamos a identificar problemas y diseñar soluciones efectivas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <div class="about-content">
+                <p>En NexoStudio, nos especializamos en empoderar a las pequeñas y medianas empresas a través de la tecnología y el análisis de datos. Entendemos los desafíos únicos que enfrentan las PyMEs y ofrecemos soluciones prácticas y accesibles.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Experiencia Comprobada</h4>
+                            <p>Años de experiencia ayudando a empresas a crecer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Soluciones Personalizadas</h4>
+                            <p>Cada negocio es único, nuestras soluciones también</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Tecnología Actualizada</h4>
+                            <p>Utilizamos las últimas herramientas del mercado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Soporte Continuo</h4>
+                            <p>Te acompañamos en cada paso del proceso</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.125rem;">¿Listo para transformar tu negocio? Estamos aquí para ayudarte</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <a href="mailto:info@nexostudio.com">info@nexostudio.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <a href="https://wa.me/1234567890">WhatsApp</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📷</div>
+                    <a href="https://instagram.com/nexostudio" target="_blank">@nexostudio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 NexoStudio. Todos los derechos reservados.</p>
+        <p>Análisis de Datos • Automatización • Contenido Digital</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
