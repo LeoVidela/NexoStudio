@@ -1,0 +1,30 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shape -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0077FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon - Hexagon with N -->
+  <g transform="translate(5, 10)">
+    <polygon points="20,5 35,12.5 35,27.5 20,35 5,27.5 5,12.5" 
+             fill="url(#logoGradient)" 
+             stroke="#003D7A" 
+             stroke-width="1.5"/>
+    <text x="20" y="26" 
+          font-family="Arial, sans-serif" 
+          font-size="22" 
+          font-weight="bold" 
+          fill="white" 
+          text-anchor="middle">N</text>
+  </g>
+  
+  <!-- Text: NexoStudio -->
+  <text x="50" y="32" 
+        font-family="Arial, sans-serif" 
+        font-size="24" 
+        font-weight="bold" 
+        fill="#003D7A">Nexo<tspan fill="#0077FF">Studio</tspan></text>
+</svg>
