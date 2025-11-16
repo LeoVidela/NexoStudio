@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NexoStudio - Página Comercial">
+    <title>NexoStudio - Página Comercial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f5f7fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 153, 255, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            color: #e8f4f8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .content {
+            background: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #0099ff;
+        }
+        
+        .content h2 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #546e7a;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #0099ff;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 153, 255, 0.2);
+            border-top-color: #00d4ff;
+        }
+        
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #546e7a;
+            line-height: 1.6;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        }
+        
+        footer p {
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">N</div>
+        </div>
+        <h1>NexoStudio</h1>
+        <p>Página Comercial</p>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Bienvenido a NexoStudio</h2>
+            <p>
+                NexoStudio es tu socio ideal para soluciones digitales innovadoras. 
+                Nos especializamos en crear experiencias digitales que conectan marcas con sus audiencias.
+            </p>
+            <p>
+                Con un enfoque en la calidad, creatividad e innovación, transformamos ideas en realidades digitales impactantes.
+            </p>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Diseño Creativo</h3>
+                <p>Diseños modernos y atractivos que capturan la esencia de tu marca.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">💻</span>
+                <h3>Desarrollo Web</h3>
+                <p>Sitios web responsive y optimizados para todos los dispositivos.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Soluciones Móviles</h3>
+                <p>Aplicaciones móviles que ofrecen experiencias excepcionales.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>Marketing Digital</h3>
+                <p>Estrategias digitales para impulsar tu presencia en línea.</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>¿Por qué elegirnos?</h2>
+            <p>
+                En NexoStudio, combinamos creatividad con tecnología de vanguardia para 
+                ofrecer soluciones que no solo cumplen, sino que superan las expectativas.
+            </p>
+            <p>
+                Nuestro equipo de profesionales está comprometido con la excelencia y 
+                la satisfacción del cliente en cada proyecto que emprendemos.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 NexoStudio. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
