@@ -5,7 +5,7 @@ Página Comercial
 
 Este sitio está publicado usando GitHub Pages. Para ver la página:
 
-1. La página se publica automáticamente en: `https://leoviedla.github.io/NexoStudio/`
+1. La página se publica automáticamente en: `https://leovidela.github.io/NexoStudio/`
 2. Cada vez que se hace push a la rama `main`, la página se actualiza automáticamente
 
 ## Configuración de GitHub Pages
