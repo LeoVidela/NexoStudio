@@ -16,28 +16,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 50%, #ffffff 100%);
         }
         
         header {
-            background: linear-gradient(135deg, #2c5f8d 0%, #3d7ab8 50%, #4a90d9 100%);
-            color: white;
+            background: #ffffff;
+            color: #2c3e50;
             padding: 0;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.3;
+            border-bottom: 1px solid #e8eef3;
         }
         
         .logo-container {
@@ -49,21 +39,20 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            min-height: 300px;
+            min-height: 200px;
         }
         
         .logo-container img {
             width: 100%;
-            max-width: 800px;
+            max-width: 400px;
             height: auto;
-            padding: 3rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3));
+            padding: 2.5rem;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
         
         .logo-container img:hover {
-            transform: scale(1.02);
-            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+            transform: scale(1.03);
+            opacity: 0.9;
         }
         
         .logo {
@@ -96,22 +85,22 @@
         }
         
         .content {
-            background: white;
+            background: linear-gradient(135deg, #2c5f8d 0%, #3d7ab8 100%);
             padding: 3rem;
             margin: 2.5rem 0;
             border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            border-left: 6px solid #0099ff;
+            box-shadow: 0 8px 30px rgba(44, 95, 141, 0.3);
+            border: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(44, 95, 141, 0.4);
         }
         
         .content h2 {
-            color: #0f2027;
+            color: #ffffff;
             margin-bottom: 1.8rem;
             font-size: 2.3rem;
             font-weight: 700;
@@ -126,14 +115,14 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, #0099ff, #00d4ff);
+            background: linear-gradient(90deg, #ffffff, #e8f4f8);
             border-radius: 2px;
         }
         
         .content p {
             margin-bottom: 1.2rem;
             line-height: 1.9;
-            color: #546e7a;
+            color: #e8f4f8;
             font-size: 1.1rem;
         }
         
@@ -145,13 +134,13 @@
         }
         
         .feature-card {
-            background: white;
+            background: #ffffff;
             padding: 2.5rem;
             border-radius: 16px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0, 153, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(44, 95, 141, 0.15);
+            border: 2px solid rgba(44, 95, 141, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -163,7 +152,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #0099ff, #00d4ff);
+            background: linear-gradient(90deg, #2c5f8d, #3d7ab8);
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -174,12 +163,12 @@
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 153, 255, 0.25);
-            border-color: rgba(0, 153, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(44, 95, 141, 0.3);
+            border-color: rgba(44, 95, 141, 0.3);
         }
         
         .feature-card h3 {
-            color: #0f2027;
+            color: #2c5f8d;
             margin-bottom: 1rem;
             font-size: 1.5rem;
             font-weight: 700;
@@ -203,54 +192,58 @@
         }
         
         .contact-section {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background: #ffffff;
             padding: 4rem 2rem;
             margin: 3rem 0 0 0;
             text-align: center;
-            color: white;
+            color: #2c3e50;
+            border-top: 3px solid #2c5f8d;
+            box-shadow: 0 -4px 20px rgba(44, 95, 141, 0.1);
         }
         
         .contact-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
+            color: #2c5f8d;
         }
         
         .contact-section p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            color: #546e7a;
         }
         
         .contact-btn {
             display: inline-block;
             padding: 1rem 3rem;
-            background: linear-gradient(135deg, #0099ff, #00d4ff);
+            background: linear-gradient(135deg, #2c5f8d, #3d7ab8);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 153, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(44, 95, 141, 0.3);
         }
         
         .contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 153, 255, 0.5);
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            box-shadow: 0 15px 40px rgba(44, 95, 141, 0.5);
+            background: linear-gradient(135deg, #3d7ab8, #4a90d9);
         }
         
         footer {
-            background: #0f2027;
-            color: white;
+            background: #ffffff;
+            color: #2c3e50;
             text-align: center;
             padding: 2.5rem 0;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 -4px 20px rgba(44, 95, 141, 0.1);
+            border-top: 1px solid #e8eef3;
         }
         
         footer p {
-            color: #e8f4f8;
+            color: #546e7a;
             font-size: 1rem;
             margin: 0.5rem 0;
         }
@@ -264,13 +257,14 @@
         }
         
         .footer-links a {
-            color: #00d4ff;
+            color: #2c5f8d;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
         
         .footer-links a:hover {
-            color: #ffffff;
+            color: #3d7ab8;
         }
         
         @media (max-width: 768px) {
@@ -279,12 +273,12 @@
             }
             
             .logo-container {
-                min-height: 200px;
+                min-height: 150px;
             }
             
             .logo-container img {
-                padding: 2rem;
-                max-width: 100%;
+                padding: 1.5rem;
+                max-width: 300px;
             }
             
             .logo {
@@ -389,7 +383,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2024 NexoStudio. Todos los derechos reservados.</p>
+        <p>&copy; 2025 NexoStudio. Todos los derechos reservados.</p>
         <div class="footer-links">
             <a href="#">Servicios</a>
             <a href="#">Portfolio</a>
