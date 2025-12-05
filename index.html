@@ -5,103 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NexoStudio - Página Comercial">
     <title>NexoStudio - Página Comercial</title>
+    <!-- Google Fonts: Montserrat para títulos, Open Sans para el cuerpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Variables CSS para una gestión de colores y espaciado más sencilla */
+        :root {
+            --primary-color: #2c5f8d; /* Azul oscuro principal */
+            --secondary-color: #3d7ab8; /* Azul más claro secundario */
+            --accent-light-bg: #e8f4f8; /* Fondo claro acentuado */
+            --accent-medium-bg: #f0f8fc; /* Fondo medio acentuado */
+            --text-dark: #2c3e50; /* Color de texto oscuro */
+            --text-light: #ffffff; /* Color de texto claro */
+            --text-secondary: #546e7a; /* Color de texto secundario (gris) */
+            --gradient-blue: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-body-bg: linear-gradient(135deg, var(--accent-light-bg) 0%, var(--accent-medium-bg) 50%, var(--text-light) 100%);
+            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 30px rgba(44, 95, 141, 0.3);
+            --shadow-heavy: 0 15px 40px rgba(44, 95, 141, 0.5);
+            --border-radius-large: 16px;
+            --border-radius-medium: 12px;
+            --border-radius-small: 8px;
+            --spacing-unit: 1rem; /* Unidad base para espaciado */
+        }
+
+        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        /* Estilos generales del cuerpo */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif; /* Fuente más legible para el cuerpo */
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 50%, #ffffff 100%);
+            color: var(--text-dark);
+            background: var(--gradient-body-bg);
+            -webkit-font-smoothing: antialiased; /* Mejora la renderización de fuentes */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Estilos para encabezados */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif; /* Fuente más distintiva para títulos */
+            color: var(--primary-color);
         }
         
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2); /* Uso de variable para espaciado */
+        }
+
+        /* Header */
         header {
-            background: #ffffff;
-            color: #2c3e50;
-            padding: 0;
+            background: var(--text-light);
+            color: var(--text-dark);
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-light);
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid #e8eef3;
+            border-bottom: 1px solid var(--accent-light-bg);
         }
         
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            min-height: 200px;
+            padding: var(--spacing-unit); /* Espaciado más consistente */
+            min-height: 150px; /* Altura ligeramente reducida para el logo */
         }
         
         .logo-container img {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px; /* Tamaño máximo del logo ajustado */
             height: auto;
-            padding: 2.5rem;
+            padding: calc(var(--spacing-unit) * 1.5); /* Espaciado interno del logo */
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
         
         .logo-container img:hover {
-            transform: scale(1.03);
-            opacity: 0.9;
+            transform: scale(1.02); /* Efecto hover más sutil */
+            opacity: 0.95;
         }
         
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
-            border-radius: 16px;
+        /* Navegación principal */
+        .main-nav {
+            background: var(--primary-color);
+            padding: var(--spacing-unit) 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav ul {
+            list-style: none;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 8px 25px rgba(0, 153, 255, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            gap: calc(var(--spacing-unit) * 2);
         }
-        
-        header h1 {
-            display: none;
+
+        .main-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            padding-bottom: 5px; /* Espacio para el subrayado animado */
         }
-        
-        header p {
-            display: none;
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-light);
+            transition: width 0.3s ease;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+
+        .main-nav a:hover::after {
+            width: 100%;
         }
-        
+
+        .main-nav a:hover {
+            color: #f0f8fc; /* Color más claro en hover */
+            transform: translateY(-2px);
+        }
+
+        /* Secciones de contenido */
         .content {
-            background: linear-gradient(135deg, #2c5f8d 0%, #3d7ab8 100%);
-            padding: 3rem;
-            margin: 2.5rem 0;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(44, 95, 141, 0.3);
+            background: var(--gradient-blue);
+            padding: calc(var(--spacing-unit) * 3);
+            margin: calc(var(--spacing-unit) * 2.5) 0;
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
             border: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(44, 95, 141, 0.4);
+            box-shadow: var(--shadow-heavy);
         }
         
         .content h2 {
-            color: #ffffff;
-            margin-bottom: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: calc(var(--spacing-unit) * 1.8);
             font-size: 2.3rem;
             font-weight: 700;
             position: relative;
@@ -115,28 +165,29 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, #ffffff, #e8f4f8);
+            background: linear-gradient(90deg, var(--text-light), var(--accent-light-bg));
             border-radius: 2px;
         }
         
         .content p {
-            margin-bottom: 1.2rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.2);
             line-height: 1.9;
-            color: #e8f4f8;
+            color: var(--accent-light-bg); /* Color de texto más suave para contraste */
             font-size: 1.1rem;
         }
         
+        /* Sección de características */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: calc(var(--spacing-unit) * 2);
+            margin: calc(var(--spacing-unit) * 2) 0;
         }
         
         .feature-card {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 16px;
+            background: var(--text-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            border-radius: var(--border-radius-large);
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 5px 20px rgba(44, 95, 141, 0.15);
@@ -152,9 +203,10 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #2c5f8d, #3d7ab8);
+            background: var(--gradient-blue);
             transform: scaleX(0);
             transition: transform 0.4s ease;
+            transform-origin: left; /* Animación de barra desde la izquierda */
         }
         
         .feature-card:hover::before {
@@ -168,59 +220,62 @@
         }
         
         .feature-card h3 {
-            color: #2c5f8d;
-            margin-bottom: 1rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-unit);
             font-size: 1.5rem;
             font-weight: 700;
         }
         
         .feature-card p {
-            color: #546e7a;
+            color: var(--text-secondary);
             line-height: 1.7;
             font-size: 1.05rem;
         }
         
         .feature-icon {
             font-size: 3.5rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.2);
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
+            color: var(--secondary-color); /* Color para los iconos */
         }
         
         .feature-card:hover .feature-icon {
             transform: scale(1.1) rotate(5deg);
+            color: var(--primary-color); /* Cambio de color en hover */
         }
         
+        /* Sección de contacto */
         .contact-section {
-            background: #ffffff;
-            padding: 4rem 2rem;
-            margin: 3rem 0 0 0;
+            background: var(--text-light);
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+            margin: calc(var(--spacing-unit) * 3) 0 0 0;
             text-align: center;
-            color: #2c3e50;
-            border-top: 3px solid #2c5f8d;
+            color: var(--text-dark);
+            border-top: 3px solid var(--primary-color);
             box-shadow: 0 -4px 20px rgba(44, 95, 141, 0.1);
         }
         
         .contact-section h2 {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
             font-weight: 700;
-            color: #2c5f8d;
+            color: var(--primary-color);
         }
         
         .contact-section p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #546e7a;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--text-secondary);
         }
         
         .contact-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3rem;
+            gap: calc(var(--spacing-unit) * 3);
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: calc(var(--spacing-unit) * 2);
         }
         
         .qr-code {
@@ -230,11 +285,11 @@
         .qr-code img {
             width: 280px;
             height: 280px;
-            border-radius: 12px;
+            border-radius: var(--border-radius-medium);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            border: 2px solid #e0e0e0;
+            border: 2px solid var(--accent-medium-bg);
             transition: all 0.3s ease;
-            background: white;
+            background: var(--text-light);
             padding: 15px;
             cursor: pointer;
         }
@@ -242,14 +297,98 @@
         .qr-code img:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-            border-color: #2c5f8d;
+            border-color: var(--primary-color);
         }
         
         .qr-code p {
-            margin-top: 1rem;
+            margin-top: var(--spacing-unit);
             font-size: 1rem;
-            color: #2c5f8d;
+            color: var(--primary-color);
             font-weight: 600;
+        }
+        
+        /* Botones de contacto */
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-unit);
+        }
+        
+        .contact-btn {
+            display: inline-flex; /* Usar flex para alinear icono y texto */
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-unit) calc(var(--spacing-unit) * 3);
+            background: var(--gradient-blue);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(44, 95, 141, 0.3);
+            min-width: 250px;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            background: linear-gradient(135deg, #3d7ab8, #4a90d9); /* Gradiente ligeramente diferente en hover */
+        }
+        
+        .contact-btn.instagram {
+            background: linear-gradient(135deg, #e1306c, #c13584, #833ab4);
+            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
+        }
+        
+        .contact-btn.instagram:hover {
+            background: linear-gradient(135deg, #c13584, #833ab4, #5851db);
+            box-shadow: 0 15px 40px rgba(225, 48, 108, 0.5);
+        }
+        
+        .contact-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+        
+        .contact-btn.whatsapp:hover {
+            background: linear-gradient(135deg, #128C7E, #075E54);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-light);
+            color: var(--text-dark);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2.5) 0;
+            box-shadow: 0 -4px 20px rgba(44, 95, 141, 0.1);
+            border-top: 1px solid var(--accent-light-bg);
+        }
+        
+        footer p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .footer-links {
+            margin-top: var(--spacing-unit);
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 2);
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
         }
         
         /* Modal para ampliar imagen */
@@ -281,7 +420,7 @@
             width: 100%;
             height: auto;
             max-width: 600px;
-            border-radius: 12px;
+            border-radius: var(--border-radius-medium);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         
@@ -289,7 +428,7 @@
             position: absolute;
             top: 20px;
             right: 35px;
-            color: #fff;
+            color: var(--text-light);
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
@@ -297,7 +436,7 @@
         }
         
         .close-modal:hover {
-            color: #2c5f8d;
+            color: var(--primary-color);
         }
         
         @keyframes fadeIn {
@@ -310,112 +449,33 @@
             to { transform: scale(1); }
         }
         
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .contact-btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: linear-gradient(135deg, #2c5f8d, #3d7ab8);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(44, 95, 141, 0.3);
-            min-width: 250px;
-        }
-        
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(44, 95, 141, 0.5);
-            background: linear-gradient(135deg, #3d7ab8, #4a90d9);
-        }
-        
-        .contact-btn.instagram {
-            background: linear-gradient(135deg, #e1306c, #c13584, #833ab4);
-            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
-        }
-        
-        .contact-btn.instagram:hover {
-            background: linear-gradient(135deg, #c13584, #833ab4, #5851db);
-            box-shadow: 0 15px 40px rgba(225, 48, 108, 0.5);
-        }
-        
-        .contact-btn.whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-        }
-        
-        .contact-btn.whatsapp:hover {
-            background: linear-gradient(135deg, #128C7E, #075E54);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
-        }
-        
-        footer {
-            background: #ffffff;
-            color: #2c3e50;
-            text-align: center;
-            padding: 2.5rem 0;
-            box-shadow: 0 -4px 20px rgba(44, 95, 141, 0.1);
-            border-top: 1px solid #e8eef3;
-        }
-        
-        footer p {
-            color: #546e7a;
-            font-size: 1rem;
-            margin: 0.5rem 0;
-        }
-        
-        .footer-links {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: #2c5f8d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .footer-links a:hover {
-            color: #3d7ab8;
-        }
-        
+        /* Media Queries para Responsividad */
         @media (max-width: 768px) {
-            header {
-                padding: 0;
+            .container {
+                padding: var(--spacing-unit);
             }
-            
+
             .logo-container {
-                min-height: 150px;
+                min-height: 120px; /* Altura del logo aún más reducida en móvil */
             }
             
             .logo-container img {
-                padding: 1.5rem;
-                max-width: 300px;
+                max-width: 250px; /* Logo más pequeño en móvil */
+                padding: var(--spacing-unit);
             }
-            
-            .logo {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.5rem 0;
             }
-            
-            .container {
-                padding: 1rem;
+
+            .main-nav a {
+                margin: 0.3rem 0;
             }
             
             .content {
-                padding: 2rem;
+                padding: calc(var(--spacing-unit) * 1.5);
             }
             
             .content h2 {
@@ -423,11 +483,11 @@
             }
             
             .features {
-                gap: 1.5rem;
+                gap: calc(var(--spacing-unit) * 1.5);
             }
             
             .feature-card {
-                padding: 2rem;
+                padding: calc(var(--spacing-unit) * 2);
             }
             
             .contact-section h2 {
@@ -436,12 +496,12 @@
             
             .contact-container {
                 flex-direction: column;
-                gap: 2rem;
+                gap: calc(var(--spacing-unit) * 2);
             }
             
             .qr-code img {
-                width: 250px;
-                height: 250px;
+                width: 200px;
+                height: 200px;
             }
             
             .modal-content img {
@@ -449,14 +509,15 @@
             }
             
             .contact-btn {
-                min-width: 200px;
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
+                min-width: unset; /* Permitir que los botones se ajusten */
+                width: 90%; /* Ocupar más ancho */
+                max-width: 300px; /* Limitar ancho máximo */
+                margin: 0 auto; /* Centrar botones */
             }
             
             .footer-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: var(--spacing-unit);
             }
         }
     </style>
@@ -466,10 +527,19 @@
         <div class="logo-container">
             <img src="https://raw.githubusercontent.com/LeoVidela/NexoStudio/main/Nexo%20Studio%20Logo.png" alt="Logo NexoStudio">
         </div>
+        <!-- Navegación principal añadida para estructura y estética -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     
     <div class="container">
-        <div class="content">
+        <div class="content" id="inicio">
             <h2>Bienvenido a NexoStudio</h2>
             <p>
                 NexoStudio es tu socio ideal para soluciones digitales innovadoras. 
@@ -480,7 +550,7 @@
             </p>
         </div>
         
-        <div class="features">
+        <div class="features" id="servicios">
             <div class="feature-card">
                 <span class="feature-icon">🎨</span>
                 <h3>Diseño Creativo</h3>
@@ -506,7 +576,7 @@
             </div>
         </div>
         
-        <div class="content">
+        <div class="content" id="nosotros">
             <h2>¿Por qué elegirnos?</h2>
             <p>
                 En NexoStudio, combinamos creatividad con tecnología de vanguardia para 
@@ -519,7 +589,7 @@
         </div>
     </div>
     
-    <div class="contact-section">
+    <div class="contact-section" id="contacto">
         <h2>¿Listo para comenzar tu proyecto?</h2>
         <p>Contáctanos y llevemos tu idea al siguiente nivel</p>
         <div class="contact-container">
@@ -548,10 +618,10 @@
     <footer>
         <p>&copy; 2025 NexoStudio. Todos los derechos reservados.</p>
         <div class="footer-links">
-            <a href="#">Servicios</a>
+            <a href="#servicios">Servicios</a>
             <a href="#">Portfolio</a>
-            <a href="#">Sobre Nosotros</a>
-            <a href="#">Contacto</a>
+            <a href="#nosotros">Sobre Nosotros</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </footer>
     
